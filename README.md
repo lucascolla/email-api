@@ -19,6 +19,19 @@
 }
 ```
 
+or 
+
+```json
+{
+  "from": "",
+  "to": "",
+  "cc": "",
+  "subject": "",
+  "template": "",
+  "variables": {}
+}
+```
+
 It returns a status code **200** if the domain origin is whitelisted, or the the access key is provided in the **Authorization** header, otherwise it returns **401**.
 
 ## API Setup
@@ -55,3 +68,7 @@ docker-compose up
   - **GET https://{domain.com}/**: it returns a status code **200** if the domain origin is whitelisted, or the the access key is provided in the **Authorization** header, otherwise it returns **401**.
   - **GET https://{domain.com}/readme**: it returns the readme as HTML page. This page is public and not protected.
   - **POST https://{domain.com}/send**: it send an email, if the domain origin is whitelisted, or the the access key is provided in the **Authorization** header, otherwise it returns **401**.
+
+5. Add or edit templates:
+
+In the templates folder, you can add or edit HTML templates. Just include your variables using double curly braces (e.g. {{name}}) and pass their values through the API using the variables field in the JSON payload.
